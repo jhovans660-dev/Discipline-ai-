@@ -1,0 +1,136 @@
+<!doctype html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>Discipline AI</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#07090c;color:#f7f8fa;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.app{max-width:480px;margin:auto;min-height:100vh;padding:18px 17px 100px}.top{display:flex;justify-content:space-between;align-items:center}.logo{font-size:25px;font-weight:900}.avatar{width:38px;height:38px;border-radius:50%;border:1px solid #30343d;background:#171a20;color:#fff}.screen{margin-top:23px}h1{font-size:34px;line-height:1.02;letter-spacing:-1.5px;margin:0 0 8px}.muted{color:#9ba1ad;line-height:1.5}.card{background:#12151b;border:1px solid #292e37;border-radius:22px;padding:17px;margin-top:17px}.row{display:flex;justify-content:space-between;align-items:center}.xp{font-weight:900}.bar{height:7px;background:#292e37;border-radius:8px;overflow:hidden;margin:9px 0}.bar i{display:block;height:100%;background:#fff}.task{padding:15px 0;border-bottom:1px solid #292e37;display:flex;gap:12px;align-items:center}.task:last-child{border:0}.check{width:25px;height:25px;border-radius:8px;border:1px solid #555b66;background:#181b21}.check.done{background:#fff;color:#08090b;text-align:center}.task b{font-size:14px}.small{font-size:12px;color:#858c98;margin-top:3px}.btn{width:100%;padding:14px;border:0;border-radius:14px;background:#fff;color:#08090b;font-weight:850;margin-top:13px}.btn.dark{background:#22262e;color:#fff}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.tile{padding:16px;background:#181b21;border:1px solid #2b3038;border-radius:18px}.tile b{display:block;margin-top:9px}.tile span{font-size:23px}select{width:100%;padding:13px;border-radius:13px;border:1px solid #30343d;background:#1b1e25;color:white}.upload{height:170px;border:1.5px dashed #454b57;border-radius:18px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}.upload img{width:100%;height:100%;object-fit:cover}.feedback{padding:15px 0;border-bottom:1px solid #292e37}.feedback:last-child{border:0}.score{font-size:52px;font-weight:900}.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(480px,100%);height:76px;background:rgba(8,10,13,.97);border-top:1px solid #292e37;display:flex;justify-content:space-around;align-items:center}.nav button{background:none;border:0;color:#7f8691;font-size:10px}.nav button b{display:block;font-size:20px;margin-bottom:3px}.nav button.active{color:#fff}.hidden{display:none!important}.pill{padding:7px 10px;border-radius:99px;background:#242831;font-size:12px}.rank{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid #292e37}.rank:last-child{border:0}
+</style></head><body>
+<style>
+body:before{content:"";display:block;height:0}
+.site-nav{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid #eee;padding:12px 18px;display:flex;align-items:center;justify-content:space-between}
+.site-brand{font-weight:800;letter-spacing:-.5px}.site-brand span{opacity:.45}
+.site-links{display:flex;gap:8px}.site-links button{border:0;background:#f4f4f6;padding:8px 12px;border-radius:10px;font-size:12px}
+.hero{max-width:1050px;margin:0 auto;padding:55px 22px 35px;text-align:center}
+.hero h1{font-size:clamp(38px,7vw,72px);line-height:.98;margin:0 0 18px;letter-spacing:-3px}
+.hero p{max-width:650px;margin:0 auto 24px;font-size:17px;line-height:1.6;opacity:.7}
+.hero .cta{background:#111;color:#fff;border:0;border-radius:14px;padding:13px 20px;font-weight:700}
+.features{max-width:1050px;margin:15px auto 45px;padding:0 22px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.feature{border:1px solid #eee;border-radius:18px;padding:20px;background:#fff}.feature b{display:block;margin-bottom:6px}.feature p{font-size:13px;line-height:1.5;opacity:.65;margin:0}
+.app-wrap{max-width:1050px;margin:auto;padding:0 18px 55px}.app-heading{text-align:center;margin-bottom:20px}.app-heading h2{font-size:30px;margin:0 0 5px}.app-heading p{opacity:.6}
+.site-footer{text-align:center;padding:28px;border-top:1px solid #eee;font-size:12px;opacity:.55}
+@media(max-width:700px){.features{grid-template-columns:1fr 1fr}.site-links{display:none}.hero{padding-top:38px}}
+</style>
+
+<div class="site-nav">
+  <div class="site-brand">discipline <span>ai</span></div>
+  <div class="site-links">
+    <button onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">Features</button>
+    <button onclick="document.getElementById('dashboard').scrollIntoView({behavior:'smooth'})">Dashboard</button>
+  </div>
+</div>
+
+<section class="hero">
+  <h1>Build your discipline.</h1>
+  <p>Plan your day, track healthy habits, learn from your progress and challenge your friends — all in one place.</p>
+  <button class="cta" onclick="document.getElementById('dashboard').scrollIntoView({behavior:'smooth'})">Open Discipline AI</button>
+</section>
+
+<section class="features" id="features">
+  <div class="feature"><b>📅 Daily Plans</b><p>Routines, tasks and challenges that turn consistency into progress.</p></div>
+  <div class="feature"><b>⭐ XP & Levels</b><p>Complete useful tasks and build your progress over time.</p></div>
+  <div class="feature"><b>🤖 AI Coach</b><p>Practice presentation, voice, movement and personal style feedback.</p></div>
+  <div class="feature"><b>🏆 Social</b><p>Invite friends, join challenges and see shared progress.</p></div>
+</section>
+
+<div class="app-wrap" id="dashboard">
+  <div class="app-heading"><h2>Your dashboard</h2><p>Everything you need to keep your routine moving.</p></div>
+</div>
+<div class="app">
+<header class="top"><div class="logo">discipline ai</div><button class="avatar">D</button></header>
+
+<section id="home" class="screen"><h1>Build your<br>discipline.</h1><p class="muted">Daily actions, progress tracking and AI coaching in one place.</p>
+<div class="card"><div class="row"><div><b>Level 7</b><div class="small">1,240 / 1,500 XP</div></div><div class="xp">+260 XP</div></div><div class="bar"><i style="width:83%"></i></div></div>
+<div class="card"><div class="row"><b>Today's missions</b><span class="pill">3 / 5</span></div>
+<div class="task"><button class="check done">✓</button><div><b>Complete a study session</b><div class="small">+50 XP</div></div></div>
+<div class="task"><button class="check" onclick="complete(this)"> </button><div><b>Finish your planned workout</b><div class="small">+75 XP</div></div></div>
+<div class="task"><button class="check" onclick="complete(this)"> </button><div><b>10-minute room reset</b><div class="small">+30 XP</div></div></div>
+<button class="btn" onclick="show('plans')">View daily plan</button></div>
+<div class="grid"><div class="tile" onclick="show('fitness')"><span>🏃</span><b>Fitness</b><div class="small">Workouts & progress</div></div><div class="tile" onclick="show('coach')"><span>🤖</span><b>AI Coach</b><div class="small">Feedback & analysis</div></div></div></section>
+
+<section id="plans" class="screen hidden"><h1>Daily plan</h1><p class="muted">Simple actions you can complete today.</p><div class="card">
+<div class="task"><button class="check done">✓</button><div><b>Morning routine</b><div class="small">+40 XP</div></div></div>
+<div class="task"><button class="check done">✓</button><div><b>Study block</b><div class="small">+50 XP</div></div></div>
+<div class="task"><button class="check" onclick="complete(this)"> </button><div><b>Workout / movement</b><div class="small">+75 XP</div></div></div>
+<div class="task"><button class="check" onclick="complete(this)"> </button><div><b>Prepare for tomorrow</b><div class="small">+35 XP</div></div></div></div></section>
+
+<section id="fitness" class="screen hidden"><h1>Fitness</h1><p class="muted">Track training, performance and consistency.</p><div class="grid"><div class="tile"><span>🔥</span><b>7 day streak</b><div class="small">Training consistency</div></div><div class="tile"><span>💪</span><b>4 sessions</b><div class="small">This week</div></div></div>
+<div class="card"><b>Log workout</b><label style="display:block;margin:14px 0 7px;font-size:13px">Workout type</label><select><option>Strength</option><option>Running</option><option>Sport</option><option>Mobility</option></select><button class="btn" onclick="alert('Workout logged! +75 XP')">Log session</button></div>
+<div class="card"><b>Food & nutrition</b><p class="muted">Log meals to keep an eye on general nutrition and consistency.</p><button class="btn dark" onclick="show('food')">Open food log</button></div></section>
+
+<section id="food" class="screen hidden"><h1>Food log</h1><p class="muted">Use food logging to learn about balanced nutrition—not to restrict eating.</p><div class="card"><div class="grid"><div class="tile"><span>🥗</span><b>Meals</b><div class="small">3 logged</div></div><div class="tile"><span>💧</span><b>Water</b><div class="small">Track hydration</div></div></div><button class="btn" onclick="alert('Food entry added!')">＋ Add meal</button></div></section>
+
+<section id="coach" class="screen hidden"><h1>AI Coach</h1><p class="muted">Get practical feedback on skills, habits and presentation.</p><div class="card"><b>Choose an analysis</b><select style="margin-top:12px"><option>Photo / presentation</option><option>Posture & movement</option><option>Voice practice</option><option>Style feedback</option><option>Schoolwork</option></select><div class="upload" id="upload" style="margin-top:13px"><div id="upText"><b>＋ Add photo</b><div class="small">For image-based feedback</div></div><input id="file" type="file" accept="image/*" hidden></div><button class="btn" onclick="show('feedback')">Get AI feedback</button></div></section>
+
+<section id="feedback" class="screen hidden"><h1>AI feedback</h1><p class="muted">Practical suggestions to help you improve.</p><div class="card"><div class="pill">Presentation analysis</div><div class="score">8.2<span style="font-size:15px;color:#858c98"> / 10</span></div><div class="bar"><i style="width:82%"></i></div><div class="feedback"><b>What works</b><div class="muted">The main subject is clear and the presentation is consistent.</div></div><div class="feedback"><b>Try next</b><div class="muted">Improve framing and reduce distractions.</div></div><div class="feedback"><b>Next challenge</b><div class="muted">Create a second version and compare the two.</div></div></div></section>
+
+<section id="social" class="screen hidden"><h1>Challenges</h1><p class="muted">Stay motivated with friends and shared goals.</p><div class="card"><b>Weekly leaderboard</b><div class="rank"><span>1. Alex</span><b>1,820 XP</b></div><div class="rank"><span>2. You</span><b>1,540 XP</b></div><div class="rank"><span>3. Sam</span><b>1,410 XP</b></div><button class="btn" onclick="alert('Invite link copied!')">Invite a friend</button></div><div class="card"><b>Active challenge</b><p class="muted">Complete 5 daily missions this week.</p><div class="bar"><i style="width:60%"></i></div><b>3 / 5 completed</b></div></section>
+
+<nav class="nav"><button id="nHome" class="active" onclick="show('home')"><b>⌂</b>Home</button><button id="nFitness" onclick="show('fitness')"><b>♧</b>Fitness</button><button id="nCoach" onclick="show('coach')"><b>✦</b>Coach</button><button id="nSocial" onclick="show('social')"><b>♟</b>Social</button></nav>
+</div><script>
+function show(id){document.querySelectorAll('.screen').forEach(x=>x.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));if(['home','plans'].includes(id))nHome.classList.add('active');if(['fitness','food'].includes(id))nFitness.classList.add('active');if(['coach','feedback'].includes(id))nCoach.classList.add('active');if(id==='social')nSocial.classList.add('active')}
+function complete(b){b.classList.add('done');b.textContent='✓';}
+const file=document.getElementById('file'),up=document.getElementById('upload');up.onclick=()=>file.click();file.onchange=()=>{let f=file.files[0];if(!f)return;let r=new FileReader();r.onload=e=>{document.getElementById('upText').innerHTML='<img src="'+e.target.result+'">'};r.readAsDataURL(f)}
+</script>
+<style>
+  .toast{position:fixed;left:50%;bottom:88px;transform:translateX(-50%);background:#111;color:#fff;padding:11px 16px;border-radius:14px;font-size:13px;z-index:9999;box-shadow:0 8px 30px #0003}
+  .progressbar{height:8px;background:#e9e9ed;border-radius:99px;overflow:hidden}.progressbar i{display:block;height:100%;width:0;background:#111;border-radius:99px;transition:.3s}
+  .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.mini-stat{padding:14px;border:1px solid #eee;border-radius:16px;background:#fff}.mini-stat b{font-size:20px;display:block;margin-top:4px}
+  .challenge{padding:14px;border:1px solid #eee;border-radius:16px;margin:9px 0;background:#fff}.challenge button{margin-top:9px}
+</style>
+<script>
+(() => {
+  const KEY='disciplineAI_v2';
+  let state=JSON.parse(localStorage.getItem(KEY)||'{"xp":0,"completed":[],"sessions":0,"meals":0,"water":0,"challenge":0}');
+  const save=()=>localStorage.setItem(KEY,JSON.stringify(state));
+  const toast=(msg)=>{let t=document.createElement('div');t.className='toast';t.textContent=msg;document.body.appendChild(t);setTimeout(()=>t.remove(),1800)};
+  const addXP=(n,reason)=>{
+    state.xp+=n; save(); toast(`+${n} XP — ${reason}`);
+    document.querySelectorAll('[data-xp]').forEach(e=>e.textContent=state.xp);
+    document.querySelectorAll('[data-level]').forEach(e=>e.textContent=Math.floor(state.xp/500)+1);
+    const bars=document.querySelectorAll('[data-xpbar]'); bars.forEach(b=>b.style.width=(state.xp%500)/5+'%');
+  };
+
+  // Make existing task checkboxes reward XP once.
+  document.querySelectorAll('input[type="checkbox"]').forEach((box,i)=>{
+    box.addEventListener('change',()=>{
+      if(box.checked && !state.completed.includes(i)){state.completed.push(i);addXP(50,'mission completed');save();}
+    });
+  });
+
+  // Enhance buttons by their visible labels without changing the existing layout.
+  document.querySelectorAll('button').forEach(btn=>{
+    const txt=btn.textContent.trim().toLowerCase();
+    if(txt==='log session'){
+      btn.addEventListener('click',()=>{state.sessions++;addXP(100,'workout logged');save();});
+    }
+    if(txt==='add meal'){
+      btn.addEventListener('click',()=>{state.meals++;addXP(25,'meal logged');save();});
+    }
+    if(txt.includes('invite friend')){
+      btn.addEventListener('click',()=>toast('Invite link created — sharing can be connected in the full app.'));
+    }
+    if(txt.includes('next challenge')){
+      btn.addEventListener('click',()=>{state.challenge++;addXP(75,'challenge completed');save();});
+    }
+  });
+
+  // Add a compact persistent stats card to the home screen.
+  const home=[...document.querySelectorAll('section,main,div')].find(x=>x.textContent?.includes('Build your discipline') && x.querySelector('button'));
+  if(home){
+    const card=document.createElement('div');
+    card.className='mini-stat';
+    card.style.margin='12px 0';
+    card.innerHTML=`<small>YOUR PROGRESS</small><div style="display:flex;justify-content:space-between;margin:7px 0"><b><span data-xp>${state.xp}</span> XP</b><b>Level <span data-level>${Math.floor(state.xp/500)+1}</span></b></div><div class="progressbar"><i data-xpbar style="width:${(state.xp%500)/5}%"></i></div><p style="margin:8px 0 0;font-size:12px;opacity:.7">${state.sessions} workouts · ${state.meals} meals logged</p>`;
+    home.appendChild(card);
+  }
+})();
+</script>
+
+<div class="site-footer">Discipline AI · Prototype website</div></body></html>
