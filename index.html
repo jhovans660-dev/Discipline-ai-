@@ -1,136 +1,173 @@
-<!doctype html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>Discipline AI</title>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090b10">
+<title>Discipline AI</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#07090c;color:#f7f8fa;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.app{max-width:480px;margin:auto;min-height:100vh;padding:18px 17px 100px}.top{display:flex;justify-content:space-between;align-items:center}.logo{font-size:25px;font-weight:900}.avatar{width:38px;height:38px;border-radius:50%;border:1px solid #30343d;background:#171a20;color:#fff}.screen{margin-top:23px}h1{font-size:34px;line-height:1.02;letter-spacing:-1.5px;margin:0 0 8px}.muted{color:#9ba1ad;line-height:1.5}.card{background:#12151b;border:1px solid #292e37;border-radius:22px;padding:17px;margin-top:17px}.row{display:flex;justify-content:space-between;align-items:center}.xp{font-weight:900}.bar{height:7px;background:#292e37;border-radius:8px;overflow:hidden;margin:9px 0}.bar i{display:block;height:100%;background:#fff}.task{padding:15px 0;border-bottom:1px solid #292e37;display:flex;gap:12px;align-items:center}.task:last-child{border:0}.check{width:25px;height:25px;border-radius:8px;border:1px solid #555b66;background:#181b21}.check.done{background:#fff;color:#08090b;text-align:center}.task b{font-size:14px}.small{font-size:12px;color:#858c98;margin-top:3px}.btn{width:100%;padding:14px;border:0;border-radius:14px;background:#fff;color:#08090b;font-weight:850;margin-top:13px}.btn.dark{background:#22262e;color:#fff}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.tile{padding:16px;background:#181b21;border:1px solid #2b3038;border-radius:18px}.tile b{display:block;margin-top:9px}.tile span{font-size:23px}select{width:100%;padding:13px;border-radius:13px;border:1px solid #30343d;background:#1b1e25;color:white}.upload{height:170px;border:1.5px dashed #454b57;border-radius:18px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}.upload img{width:100%;height:100%;object-fit:cover}.feedback{padding:15px 0;border-bottom:1px solid #292e37}.feedback:last-child{border:0}.score{font-size:52px;font-weight:900}.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(480px,100%);height:76px;background:rgba(8,10,13,.97);border-top:1px solid #292e37;display:flex;justify-content:space-around;align-items:center}.nav button{background:none;border:0;color:#7f8691;font-size:10px}.nav button b{display:block;font-size:20px;margin-bottom:3px}.nav button.active{color:#fff}.hidden{display:none!important}.pill{padding:7px 10px;border-radius:99px;background:#242831;font-size:12px}.rank{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid #292e37}.rank:last-child{border:0}
-</style></head><body>
-<style>
-body:before{content:"";display:block;height:0}
-.site-nav{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid #eee;padding:12px 18px;display:flex;align-items:center;justify-content:space-between}
-.site-brand{font-weight:800;letter-spacing:-.5px}.site-brand span{opacity:.45}
-.site-links{display:flex;gap:8px}.site-links button{border:0;background:#f4f4f6;padding:8px 12px;border-radius:10px;font-size:12px}
-.hero{max-width:1050px;margin:0 auto;padding:55px 22px 35px;text-align:center}
-.hero h1{font-size:clamp(38px,7vw,72px);line-height:.98;margin:0 0 18px;letter-spacing:-3px}
-.hero p{max-width:650px;margin:0 auto 24px;font-size:17px;line-height:1.6;opacity:.7}
-.hero .cta{background:#111;color:#fff;border:0;border-radius:14px;padding:13px 20px;font-weight:700}
-.features{max-width:1050px;margin:15px auto 45px;padding:0 22px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.feature{border:1px solid #eee;border-radius:18px;padding:20px;background:#fff}.feature b{display:block;margin-bottom:6px}.feature p{font-size:13px;line-height:1.5;opacity:.65;margin:0}
-.app-wrap{max-width:1050px;margin:auto;padding:0 18px 55px}.app-heading{text-align:center;margin-bottom:20px}.app-heading h2{font-size:30px;margin:0 0 5px}.app-heading p{opacity:.6}
-.site-footer{text-align:center;padding:28px;border-top:1px solid #eee;font-size:12px;opacity:.55}
-@media(max-width:700px){.features{grid-template-columns:1fr 1fr}.site-links{display:none}.hero{padding-top:38px}}
+:root{--bg:#090b10;--panel:#11151d;--panel2:#171c26;--text:#f7f8fb;--muted:#9ca5b5;--line:#252c39;--accent:#8b7cff;--accent2:#5ee7c4;--danger:#ff7d96;--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif}
+button,input,select{font:inherit}button{border:0;color:inherit;cursor:pointer}.hidden{display:none!important}
+.container{max-width:1100px;margin:auto;padding:0 18px}.top{position:sticky;top:0;z-index:20;background:rgba(9,11,16,.84);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.nav{height:64px;display:flex;align-items:center;justify-content:space-between}.brand{font-weight:800;letter-spacing:-.7px;font-size:20px}.brand span{color:var(--accent)}
+.navlinks{display:flex;gap:8px}.navlinks button,.ghost{background:transparent;padding:9px 12px;border-radius:12px;color:var(--muted)}.navlinks button:hover,.ghost:hover{background:var(--panel2);color:var(--text)}
+.hero{padding:72px 0 44px;text-align:center}.eyebrow{color:var(--accent2);font-weight:700;font-size:13px;letter-spacing:1.2px;text-transform:uppercase}.hero h1{font-size:clamp(42px,8vw,78px);line-height:.95;letter-spacing:-4px;margin:14px auto 20px;max-width:850px}.hero p{color:var(--muted);font-size:18px;line-height:1.55;max-width:680px;margin:auto}.cta{margin-top:28px;background:var(--text);color:#090b10;padding:14px 22px;border-radius:14px;font-weight:800}
+.section{padding:28px 0 70px}.section h2{font-size:30px;letter-spacing:-1px;margin:0 0 18px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{background:linear-gradient(145deg,var(--panel),#0e1219);border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:var(--shadow)}.card h3{margin:0 0 8px}.muted{color:var(--muted)}.small{font-size:13px}
+.feature{min-height:150px}.icon{font-size:26px;margin-bottom:15px}.dashboard{margin-top:10px}.dashhead{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-bottom:16px}.pill{background:#1d2430;border:1px solid var(--line);border-radius:999px;padding:7px 11px;color:var(--muted);font-size:12px}
+.progress{height:9px;background:#252c39;border-radius:99px;overflow:hidden;margin:14px 0}.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:99px;transition:.35s}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.stat strong{display:block;font-size:24px}.stat{padding:15px;border-radius:16px;background:var(--panel2);border:1px solid var(--line)}
+.app{margin:18px auto 80px;max-width:900px;background:#0c1016;border:1px solid var(--line);border-radius:28px;overflow:hidden;box-shadow:var(--shadow)}
+.appbar{padding:18px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line)}.appbar strong{font-size:18px}.appnav{display:flex;gap:7px;overflow:auto;padding:12px;border-bottom:1px solid var(--line)}.appnav button{white-space:nowrap;background:transparent;color:var(--muted);padding:10px 13px;border-radius:12px}.appnav button.active{background:#1d2230;color:var(--text)}
+.screen{display:none;padding:18px}.screen.active{display:block}.two{display:grid;grid-template-columns:1.35fr .65fr;gap:14px}.task{display:flex;gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}.task:last-child{border:0}.check{width:24px;height:24px;border:1px solid #4a5363;border-radius:8px;background:transparent}.check.done{background:var(--accent);border-color:var(--accent)}.check.done:after{content:"✓";font-weight:900}.task b{display:block}.task span{font-size:13px;color:var(--muted)}
+.primary{background:var(--accent);padding:11px 15px;border-radius:12px;font-weight:750}.secondary{background:#1c2330;padding:11px 15px;border-radius:12px}.row{display:flex;gap:9px;flex-wrap:wrap}.field{width:100%;background:#0d1118;border:1px solid var(--line);border-radius:12px;padding:12px;color:var(--text);outline:none}.field:focus{border-color:var(--accent)}
+.list{display:grid;gap:9px}.challenge{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px;border:1px solid var(--line);background:var(--panel2);border-radius:15px}
+.badge{display:inline-flex;align-items:center;gap:7px;padding:8px 10px;background:#1d2430;border:1px solid var(--line);border-radius:12px;font-size:12px}.leader{display:grid;gap:8px}.leader div{display:flex;justify-content:space-between;padding:13px;border-radius:14px;background:var(--panel2)}.leader div:nth-child(2){outline:1px solid var(--accent)}
+.coachbox{min-height:180px;display:flex;align-items:center;justify-content:center;text-align:center;border:1px dashed #3b4454;border-radius:18px;background:#0b0f15;padding:20px}
+.result{margin-top:12px;padding:16px;border-radius:16px;background:#131923;border:1px solid var(--line)}.score{font-size:38px;font-weight:900}.notice{padding:12px;border-radius:13px;background:#13201e;border:1px solid #23463e;color:#bff6e7}
+.footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);text-align:center}.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(30px);opacity:0;background:#f7f8fb;color:#090b10;padding:12px 16px;border-radius:13px;font-weight:700;z-index:50;transition:.25s}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;padding:18px;z-index:40}.modal.open{display:flex}.modalbox{width:min(520px,100%);background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:22px}.modalbox h2{margin-top:0}
+.onboard{position:fixed;inset:0;background:#090b10;z-index:60;display:flex;align-items:center;justify-content:center;padding:22px}.onbox{max-width:620px;width:100%;text-align:center}.choices{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:22px 0}.choice{padding:18px;background:var(--panel);border:1px solid var(--line);border-radius:16px;text-align:left}.choice.selected{border-color:var(--accent);background:#17152b}.choice b{display:block;margin-bottom:4px}
+@media(max-width:700px){.grid,.two{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.navlinks{display:none}.hero{padding-top:55px}.hero h1{letter-spacing:-2.5px}.app{border-radius:22px;margin-left:0;margin-right:0}.container{padding:0 14px}}
 </style>
-
-<div class="site-nav">
-  <div class="site-brand">discipline <span>ai</span></div>
-  <div class="site-links">
-    <button onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">Features</button>
-    <button onclick="document.getElementById('dashboard').scrollIntoView({behavior:'smooth'})">Dashboard</button>
+</head>
+<body>
+<div id="onboard" class="onboard">
+  <div class="onbox">
+    <div class="eyebrow">DISCIPLINE AI</div>
+    <h1>Build better days.</h1>
+    <p class="muted">Choose what you want your dashboard to help you with. You can change these later.</p>
+    <div class="choices">
+      <button class="choice" data-goal="school"><b>📚 School</b><span class="muted small">Revision, study sessions and organisation.</span></button>
+      <button class="choice" data-goal="habits"><b>✅ Habits</b><span class="muted small">Routines, consistency and daily plans.</span></button>
+      <button class="choice" data-goal="movement"><b>🏃 Movement</b><span class="muted small">Safe activity and fitness consistency.</span></button>
+      <button class="choice" data-goal="confidence"><b>🎤 Confidence</b><span class="muted small">Presentation, voice and communication.</span></button>
+    </div>
+    <button id="startBtn" class="primary" disabled>Start my dashboard</button>
   </div>
 </div>
 
-<section class="hero">
-  <h1>Build your discipline.</h1>
-  <p>Plan your day, track healthy habits, learn from your progress and challenge your friends — all in one place.</p>
-  <button class="cta" onclick="document.getElementById('dashboard').scrollIntoView({behavior:'smooth'})">Open Discipline AI</button>
-</section>
+<header class="top"><div class="container nav"><div class="brand">discipline <span>ai</span></div><div class="navlinks">
+<button onclick="go('home')">Home</button><button onclick="go('daily')">Daily</button><button onclick="go('coach')">Coach</button><button onclick="go('progress')">Progress</button><button onclick="go('social')">Friends</button>
+</div><button class="ghost" onclick="openProfile()">Profile</button></div></header>
 
-<section class="features" id="features">
-  <div class="feature"><b>📅 Daily Plans</b><p>Routines, tasks and challenges that turn consistency into progress.</p></div>
-  <div class="feature"><b>⭐ XP & Levels</b><p>Complete useful tasks and build your progress over time.</p></div>
-  <div class="feature"><b>🤖 AI Coach</b><p>Practice presentation, voice, movement and personal style feedback.</p></div>
-  <div class="feature"><b>🏆 Social</b><p>Invite friends, join challenges and see shared progress.</p></div>
-</section>
+<main>
+<section class="hero"><div class="container">
+<div class="eyebrow">CONSISTENCY OVER PERFECTION</div><h1>Build your discipline.</h1>
+<p>Plan your day, keep useful habits, learn from your progress and challenge friends — in one place.</p>
+<button class="cta" onclick="document.getElementById('app').scrollIntoView({behavior:'smooth'})">Open Discipline AI</button>
+</div></section>
 
-<div class="app-wrap" id="dashboard">
-  <div class="app-heading"><h2>Your dashboard</h2><p>Everything you need to keep your routine moving.</p></div>
+<section class="section"><div class="container">
+<div class="grid">
+<div class="card feature"><div class="icon">📅</div><h3>Daily plans</h3><p class="muted">Turn routines and challenges into small, achievable actions.</p></div>
+<div class="card feature"><div class="icon">⭐</div><h3>XP & levels</h3><p class="muted">Earn progress for useful tasks and build consistency.</p></div>
+<div class="card feature"><div class="icon">🤖</div><h3>AI coaching</h3><p class="muted">Get structured feedback on study, presentation and habits.</p></div>
 </div>
-<div class="app">
-<header class="top"><div class="logo">discipline ai</div><button class="avatar">D</button></header>
+</div></section>
 
-<section id="home" class="screen"><h1>Build your<br>discipline.</h1><p class="muted">Daily actions, progress tracking and AI coaching in one place.</p>
-<div class="card"><div class="row"><div><b>Level 7</b><div class="small">1,240 / 1,500 XP</div></div><div class="xp">+260 XP</div></div><div class="bar"><i style="width:83%"></i></div></div>
-<div class="card"><div class="row"><b>Today's missions</b><span class="pill">3 / 5</span></div>
-<div class="task"><button class="check done">✓</button><div><b>Complete a study session</b><div class="small">+50 XP</div></div></div>
-<div class="task"><button class="check" onclick="complete(this)"> </button><div><b>Finish your planned workout</b><div class="small">+75 XP</div></div></div>
-<div class="task"><button class="check" onclick="complete(this)"> </button><div><b>10-minute room reset</b><div class="small">+30 XP</div></div></div>
-<button class="btn" onclick="show('plans')">View daily plan</button></div>
-<div class="grid"><div class="tile" onclick="show('fitness')"><span>🏃</span><b>Fitness</b><div class="small">Workouts & progress</div></div><div class="tile" onclick="show('coach')"><span>🤖</span><b>AI Coach</b><div class="small">Feedback & analysis</div></div></div></section>
+<section class="section dashboard" id="home"><div class="container">
+<div class="dashhead"><div><div class="eyebrow">YOUR PROGRESS</div><h2 id="dashTitle">Level 1</h2></div><span class="pill" id="streakPill">🔥 0 day streak</span></div>
+<div class="card"><div class="stats">
+<div class="stat"><span class="muted small">XP</span><strong id="xp">0</strong></div><div class="stat"><span class="muted small">Level</span><strong id="level">1</strong></div><div class="stat"><span class="muted small">Tasks</span><strong id="tasks">0</strong></div><div class="stat"><span class="muted small">Badges</span><strong id="badges">0</strong></div>
+</div><div class="progress"><i id="xpbar"></i></div><div class="muted small" id="xpText">0 / 500 XP to next level</div></div>
+</div></section>
 
-<section id="plans" class="screen hidden"><h1>Daily plan</h1><p class="muted">Simple actions you can complete today.</p><div class="card">
-<div class="task"><button class="check done">✓</button><div><b>Morning routine</b><div class="small">+40 XP</div></div></div>
-<div class="task"><button class="check done">✓</button><div><b>Study block</b><div class="small">+50 XP</div></div></div>
-<div class="task"><button class="check" onclick="complete(this)"> </button><div><b>Workout / movement</b><div class="small">+75 XP</div></div></div>
-<div class="task"><button class="check" onclick="complete(this)"> </button><div><b>Prepare for tomorrow</b><div class="small">+35 XP</div></div></div></div></section>
+<section class="section"><div class="container">
+<div class="app" id="app">
+<div class="appbar"><strong>Discipline AI</strong><span class="pill" id="goalPill">Your plan</span></div>
+<div class="appnav">
+<button class="active" data-screen="daily">Daily</button><button data-screen="coach">Coach</button><button data-screen="progress">Progress</button><button data-screen="movement">Movement</button><button data-screen="nutrition">Nutrition</button><button data-screen="social">Friends</button>
+</div>
 
-<section id="fitness" class="screen hidden"><h1>Fitness</h1><p class="muted">Track training, performance and consistency.</p><div class="grid"><div class="tile"><span>🔥</span><b>7 day streak</b><div class="small">Training consistency</div></div><div class="tile"><span>💪</span><b>4 sessions</b><div class="small">This week</div></div></div>
-<div class="card"><b>Log workout</b><label style="display:block;margin:14px 0 7px;font-size:13px">Workout type</label><select><option>Strength</option><option>Running</option><option>Sport</option><option>Mobility</option></select><button class="btn" onclick="alert('Workout logged! +75 XP')">Log session</button></div>
-<div class="card"><b>Food & nutrition</b><p class="muted">Log meals to keep an eye on general nutrition and consistency.</p><button class="btn dark" onclick="show('food')">Open food log</button></div></section>
+<div class="screen active" id="screen-daily"><div class="two">
+<div class="card"><h3>Today's plan</h3><p class="muted">Complete small actions. Consistency matters more than doing everything.</p><div class="list" id="taskList"></div></div>
+<div class="card"><h3>Daily challenge</h3><div class="challenge"><div><b id="challengeName">10-minute focus session</b><div class="muted small">+50 XP</div></div><button class="primary" onclick="completeChallenge()">Complete</button></div><br><div class="notice">💡 Keep goals realistic. Rest and school commitments count too.</div></div>
+</div></div>
 
-<section id="food" class="screen hidden"><h1>Food log</h1><p class="muted">Use food logging to learn about balanced nutrition—not to restrict eating.</p><div class="card"><div class="grid"><div class="tile"><span>🥗</span><b>Meals</b><div class="small">3 logged</div></div><div class="tile"><span>💧</span><b>Water</b><div class="small">Track hydration</div></div></div><button class="btn" onclick="alert('Food entry added!')">＋ Add meal</button></div></section>
+<div class="screen" id="screen-coach"><div class="two">
+<div class="card"><h3>AI Coach</h3><p class="muted">Choose what you want feedback on.</p><select id="coachType" class="field"><option>Schoolwork</option><option>Voice practice</option><option>Presentation</option><option>Posture & movement</option><option>Style & presentation</option></select><br><br><textarea id="coachInput" class="field" rows="5" placeholder="Paste a question, describe what you're practising, or write what you want feedback on..."></textarea><br><br><button class="primary" onclick="runCoach()">Get feedback</button></div>
+<div class="card"><h3>Feedback</h3><div id="coachResult" class="coachbox"><span class="muted">Your feedback will appear here.</span></div></div></div></div>
 
-<section id="coach" class="screen hidden"><h1>AI Coach</h1><p class="muted">Get practical feedback on skills, habits and presentation.</p><div class="card"><b>Choose an analysis</b><select style="margin-top:12px"><option>Photo / presentation</option><option>Posture & movement</option><option>Voice practice</option><option>Style feedback</option><option>Schoolwork</option></select><div class="upload" id="upload" style="margin-top:13px"><div id="upText"><b>＋ Add photo</b><div class="small">For image-based feedback</div></div><input id="file" type="file" accept="image/*" hidden></div><button class="btn" onclick="show('feedback')">Get AI feedback</button></div></section>
+<div class="screen" id="screen-progress"><div class="two"><div class="card"><h3>Progress overview</h3><div class="stats"><div class="stat"><span class="muted small">Completed</span><strong id="pTasks">0</strong></div><div class="stat"><span class="muted small">XP</span><strong id="pXP">0</strong></div><div class="stat"><span class="muted small">Streak</span><strong id="pStreak">0</strong></div><div class="stat"><span class="muted small">Badges</span><strong id="pBadges">0</strong></div></div><br><h3>Achievements</h3><div id="badgeList" class="row"></div></div>
+<div class="card"><h3>Weekly focus</h3><p class="muted">Use this as a reflection, not a score of your worth.</p><div class="challenge"><span>Tasks completed</span><b id="weekTasks">0</b></div><br><div class="challenge"><span>Coach sessions</span><b id="coachCount">0</b></div></div></div></div>
 
-<section id="feedback" class="screen hidden"><h1>AI feedback</h1><p class="muted">Practical suggestions to help you improve.</p><div class="card"><div class="pill">Presentation analysis</div><div class="score">8.2<span style="font-size:15px;color:#858c98"> / 10</span></div><div class="bar"><i style="width:82%"></i></div><div class="feedback"><b>What works</b><div class="muted">The main subject is clear and the presentation is consistent.</div></div><div class="feedback"><b>Try next</b><div class="muted">Improve framing and reduce distractions.</div></div><div class="feedback"><b>Next challenge</b><div class="muted">Create a second version and compare the two.</div></div></div></section>
+<div class="screen" id="screen-movement"><div class="two"><div class="card"><h3>Movement tracker</h3><p class="muted">Log activity to remember what you did. No body-size or weight targets.</p><select id="moveType" class="field"><option>Walk</option><option>Sports</option><option>Gym session</option><option>Stretching</option><option>Other movement</option></select><br><br><button class="primary" onclick="logMovement()">Log session +30 XP</button></div><div class="card"><h3>This week</h3><div class="score" id="moveCount">0</div><span class="muted">sessions logged</span><br><br><div class="notice">🏃 Aim for enjoyable, age-appropriate activity and recovery.</div></div></div></div>
 
-<section id="social" class="screen hidden"><h1>Challenges</h1><p class="muted">Stay motivated with friends and shared goals.</p><div class="card"><b>Weekly leaderboard</b><div class="rank"><span>1. Alex</span><b>1,820 XP</b></div><div class="rank"><span>2. You</span><b>1,540 XP</b></div><div class="rank"><span>3. Sam</span><b>1,410 XP</b></div><button class="btn" onclick="alert('Invite link copied!')">Invite a friend</button></div><div class="card"><b>Active challenge</b><p class="muted">Complete 5 daily missions this week.</p><div class="bar"><i style="width:60%"></i></div><b>3 / 5 completed</b></div></section>
+<div class="screen" id="screen-nutrition"><div class="two"><div class="card"><h3>Food & hydration</h3><p class="muted">Log meals to learn about balanced nutrition. This is not a calorie-restriction tool.</p><input id="mealInput" class="field" placeholder="e.g. Breakfast: cereal, fruit and milk"><br><br><button class="primary" onclick="logMeal()">Add meal +15 XP</button><br><br><input id="waterInput" class="field" placeholder="Water note, e.g. bottle at lunch"><br><br><button class="secondary" onclick="logWater()">Log hydration</button></div><div class="card"><h3>Today's notes</h3><div id="mealList" class="list"><span class="muted">Nothing logged yet.</span></div></div></div></div>
 
-<nav class="nav"><button id="nHome" class="active" onclick="show('home')"><b>⌂</b>Home</button><button id="nFitness" onclick="show('fitness')"><b>♧</b>Fitness</button><button id="nCoach" onclick="show('coach')"><b>✦</b>Coach</button><button id="nSocial" onclick="show('social')"><b>♟</b>Social</button></nav>
-</div><script>
-function show(id){document.querySelectorAll('.screen').forEach(x=>x.classList.add('hidden'));document.getElementById(id).classList.remove('hidden');document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));if(['home','plans'].includes(id))nHome.classList.add('active');if(['fitness','food'].includes(id))nFitness.classList.add('active');if(['coach','feedback'].includes(id))nCoach.classList.add('active');if(id==='social')nSocial.classList.add('active')}
-function complete(b){b.classList.add('done');b.textContent='✓';}
-const file=document.getElementById('file'),up=document.getElementById('upload');up.onclick=()=>file.click();file.onchange=()=>{let f=file.files[0];if(!f)return;let r=new FileReader();r.onload=e=>{document.getElementById('upText').innerHTML='<img src="'+e.target.result+'">'};r.readAsDataURL(f)}
-</script>
-<style>
-  .toast{position:fixed;left:50%;bottom:88px;transform:translateX(-50%);background:#111;color:#fff;padding:11px 16px;border-radius:14px;font-size:13px;z-index:9999;box-shadow:0 8px 30px #0003}
-  .progressbar{height:8px;background:#e9e9ed;border-radius:99px;overflow:hidden}.progressbar i{display:block;height:100%;width:0;background:#111;border-radius:99px;transition:.3s}
-  .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.mini-stat{padding:14px;border:1px solid #eee;border-radius:16px;background:#fff}.mini-stat b{font-size:20px;display:block;margin-top:4px}
-  .challenge{padding:14px;border:1px solid #eee;border-radius:16px;margin:9px 0;background:#fff}.challenge button{margin-top:9px}
-</style>
+<div class="screen" id="screen-social"><div class="two"><div class="card"><h3>Friends & challenges</h3><p class="muted">Compete on useful goals, not appearance or body measurements.</p><button class="primary" onclick="invite()">Invite a friend</button><br><br><div class="challenge"><span>5-day study challenge</span><b id="challengeProgress">0/5</b></div><br><button class="secondary" onclick="addChallengeProgress()">Mark challenge day complete</button></div><div class="card"><h3>Weekly leaderboard</h3><div class="leader"><div><span>🥇 Alex</span><b>1820 XP</b></div><div><span>⭐ You</span><b id="youXP">0 XP</b></div><div><span>🥉 Sam</span><b>1410 XP</b></div></div></div></div></div>
+</div></div></section>
+</main>
+
+<footer class="footer"><div class="container">Discipline AI · Built around consistency, learning and healthy habits.</div></footer>
+<div id="toast" class="toast"></div>
+
+<div id="profileModal" class="modal"><div class="modalbox"><div class="dashhead"><h2>Profile</h2><button class="ghost" onclick="closeProfile()">✕</button></div><label class="muted small">Display name</label><input id="nameInput" class="field" style="margin:8px 0 14px" placeholder="Your name"><button class="primary" onclick="saveProfile()">Save profile</button><br><br><button class="secondary" onclick="resetApp()">Reset local progress</button></div></div>
+
 <script>
-(() => {
-  const KEY='disciplineAI_v2';
-  let state=JSON.parse(localStorage.getItem(KEY)||'{"xp":0,"completed":[],"sessions":0,"meals":0,"water":0,"challenge":0}');
-  const save=()=>localStorage.setItem(KEY,JSON.stringify(state));
-  const toast=(msg)=>{let t=document.createElement('div');t.className='toast';t.textContent=msg;document.body.appendChild(t);setTimeout(()=>t.remove(),1800)};
-  const addXP=(n,reason)=>{
-    state.xp+=n; save(); toast(`+${n} XP — ${reason}`);
-    document.querySelectorAll('[data-xp]').forEach(e=>e.textContent=state.xp);
-    document.querySelectorAll('[data-level]').forEach(e=>e.textContent=Math.floor(state.xp/500)+1);
-    const bars=document.querySelectorAll('[data-xpbar]'); bars.forEach(b=>b.style.width=(state.xp%500)/5+'%');
-  };
-
-  // Make existing task checkboxes reward XP once.
-  document.querySelectorAll('input[type="checkbox"]').forEach((box,i)=>{
-    box.addEventListener('change',()=>{
-      if(box.checked && !state.completed.includes(i)){state.completed.push(i);addXP(50,'mission completed');save();}
-    });
-  });
-
-  // Enhance buttons by their visible labels without changing the existing layout.
-  document.querySelectorAll('button').forEach(btn=>{
-    const txt=btn.textContent.trim().toLowerCase();
-    if(txt==='log session'){
-      btn.addEventListener('click',()=>{state.sessions++;addXP(100,'workout logged');save();});
-    }
-    if(txt==='add meal'){
-      btn.addEventListener('click',()=>{state.meals++;addXP(25,'meal logged');save();});
-    }
-    if(txt.includes('invite friend')){
-      btn.addEventListener('click',()=>toast('Invite link created — sharing can be connected in the full app.'));
-    }
-    if(txt.includes('next challenge')){
-      btn.addEventListener('click',()=>{state.challenge++;addXP(75,'challenge completed');save();});
-    }
-  });
-
-  // Add a compact persistent stats card to the home screen.
-  const home=[...document.querySelectorAll('section,main,div')].find(x=>x.textContent?.includes('Build your discipline') && x.querySelector('button'));
-  if(home){
-    const card=document.createElement('div');
-    card.className='mini-stat';
-    card.style.margin='12px 0';
-    card.innerHTML=`<small>YOUR PROGRESS</small><div style="display:flex;justify-content:space-between;margin:7px 0"><b><span data-xp>${state.xp}</span> XP</b><b>Level <span data-level>${Math.floor(state.xp/500)+1}</span></b></div><div class="progressbar"><i data-xpbar style="width:${(state.xp%500)/5}%"></i></div><p style="margin:8px 0 0;font-size:12px;opacity:.7">${state.sessions} workouts · ${state.meals} meals logged</p>`;
-    home.appendChild(card);
-  }
-})();
+const KEY="disciplineAI_v3";
+let state=JSON.parse(localStorage.getItem(KEY)||"null")||{xp:0,tasks:0,streak:0,badges:0,coach:0,moves:0,meals:[],challenge:0,name:"",goals:[]};
+let selectedGoals=[];
+const baseTasks=[
+["Morning routine","Start the day with a simple routine.",25],
+["Study block","Complete one focused school session.",40],
+["Movement","Do enjoyable movement or take a proper break.",30],
+["Prepare tomorrow","Pack what you need and set one priority.",25]
+];
+function save(){localStorage.setItem(KEY,JSON.stringify(state));render();}
+function toast(t){const x=document.getElementById("toast");x.textContent=t;x.classList.add("show");setTimeout(()=>x.classList.remove("show"),1800)}
+function render(){
+ let level=Math.floor(state.xp/500)+1, within=state.xp%500;
+ document.getElementById("xp").textContent=state.xp;document.getElementById("level").textContent=level;
+ document.getElementById("dashTitle").textContent=state.name?`Welcome, ${state.name}`:`Level ${level}`;
+ document.getElementById("tasks").textContent=state.tasks;document.getElementById("badges").textContent=state.badges;
+ document.getElementById("xpbar").style.width=(within/500*100)+"%";document.getElementById("xpText").textContent=`${within} / 500 XP to next level`;
+ document.getElementById("streakPill").textContent=`🔥 ${state.streak} day streak`;
+ document.getElementById("pTasks").textContent=state.tasks;document.getElementById("pXP").textContent=state.xp;document.getElementById("pStreak").textContent=state.streak;document.getElementById("pBadges").textContent=state.badges;
+ document.getElementById("weekTasks").textContent=state.tasks;document.getElementById("coachCount").textContent=state.coach;document.getElementById("moveCount").textContent=state.moves;document.getElementById("youXP").textContent=state.xp+" XP";
+ document.getElementById("challengeProgress").textContent=state.challenge+"/5";
+ document.getElementById("goalPill").textContent=state.goals.length?state.goals.map(x=>x[0].toUpperCase()+x.slice(1)).join(" · "):"Your plan";
+ document.getElementById("badgeList").innerHTML=(state.badges?["🏅 Consistent starter","⭐ XP builder","🔥 Streak builder","🏆 Challenge finisher"].slice(0,state.badges):["No badges yet"]).map(x=>`<span class="badge">${x}</span>`).join("");
+ document.getElementById("mealList").innerHTML=state.meals.length?state.meals.slice(-6).reverse().map(x=>`<div class="challenge"><span>${escapeHtml(x)}</span><span class="small muted">logged</span></div>`).join(""):"<span class='muted'>Nothing logged yet.</span>";
+}
+function escapeHtml(s){return s.replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
+function buildTasks(){
+ document.getElementById("taskList").innerHTML=baseTasks.map((t,i)=>`<div class="task"><button class="check" id="task${i}" onclick="finishTask(${i},this)"></button><div><b>${t[0]}</b><span>${t[1]} · +${t[2]} XP</span></div></div>`).join("");
+}
+function finishTask(i,btn){if(btn.classList.contains("done"))return;btn.classList.add("done");state.xp+=baseTasks[i][2];state.tasks++;if(state.tasks%3===0){state.badges=Math.min(4,state.badges+1);toast("🏅 New badge unlocked!")}else toast("+"+baseTasks[i][2]+" XP");save()}
+function completeChallenge(){state.xp+=50;state.tasks++;state.challenge=Math.min(5,state.challenge+1);toast("⭐ Challenge complete! +50 XP");save()}
+function logMovement(){state.moves++;state.xp+=30;state.tasks++;toast("🏃 Session logged! +30 XP");save()}
+function logMeal(){let v=document.getElementById("mealInput").value.trim();if(!v)return toast("Add a meal note first.");state.meals.push(v);state.xp+=15;state.tasks++;document.getElementById("mealInput").value="";toast("🍎 Meal logged! +15 XP");save()}
+function logWater(){toast("💧 Hydration logged");}
+function addChallengeProgress(){state.challenge=Math.min(5,state.challenge+1);state.xp+=20;toast("🔥 Challenge day complete!");save()}
+function invite(){navigator.clipboard?.writeText(location.href);toast("Invite link copied (if supported)")}
+function runCoach(){
+ let type=document.getElementById("coachType").value, input=document.getElementById("coachInput").value.trim();
+ if(!input)return toast("Add something for the coach to review.");
+ state.coach++;state.xp+=20;
+ const advice={
+ "Schoolwork":["Break the task into one question at a time.","Explain the idea in your own words before checking notes.","Finish with one exam-style question."],
+ "Voice practice":["Slow slightly at important points.","Use clear pauses instead of filling silence.","Practise the opening and ending twice."],
+ "Presentation":["Start with a clear main point.","Use an example to support each key idea.","Finish with a memorable conclusion."],
+ "Posture & movement":["Keep movements comfortable and controlled.","Take regular breaks if you have been sitting.","Focus on how the movement feels rather than appearance."],
+ "Style & presentation":["Choose clothes that suit the activity and setting.","Check that colours and layers work together.","Prioritise comfort, practicality and your own preferences."]
+ };
+ let a=advice[type]||advice["Presentation"];
+ document.getElementById("coachResult").innerHTML=`<div><div class="score">Coach</div><p>${a[0]}</p><p>${a[1]}</p><p>${a[2]}</p><span class="muted small">Prototype feedback — connect a secure AI backend for real-time AI analysis.</span></div>`;
+ toast("+20 XP · Coach session saved");save()
+}
+function go(name){document.getElementById("app").scrollIntoView({behavior:"smooth"});setTimeout(()=>showScreen(name==="home"?"daily":name),150)}
+function showScreen(name){document.querySelectorAll(".screen").forEach(x=>x.classList.remove("active"));let s=document.getElementById("screen-"+name);if(!s)s=document.getElementById("screen-daily");s.classList.add("active");document.querySelectorAll(".appnav button").forEach(b=>b.classList.toggle("active",b.dataset.screen===name))}
+document.querySelectorAll(".appnav button").forEach(b=>b.addEventListener("click",()=>showScreen(b.dataset.screen)));
+function openProfile(){document.getElementById("profileModal").classList.add("open");document.getElementById("nameInput").value=state.name}
+function closeProfile(){document.getElementById("profileModal").classList.remove("open")}
+function saveProfile(){state.name=document.getElementById("nameInput").value.trim();save();closeProfile();toast("Profile saved")}
+function resetApp(){if(confirm("Reset all local Discipline AI progress?")){localStorage.removeItem(KEY);location.reload()}}
+document.querySelectorAll(".choice").forEach(c=>c.addEventListener("click",()=>{c.classList.toggle("selected");let g=c.dataset.goal;if(selectedGoals.includes(g))selectedGoals=selectedGoals.filter(x=>x!==g);else selectedGoals.push(g);document.getElementById("startBtn").disabled=!selectedGoals.length}));
+document.getElementById("startBtn").addEventListener("click",()=>{state.goals=selectedGoals;state.streak=1;save();document.getElementById("onboard").classList.add("hidden");toast("Your dashboard is ready")});
+buildTasks();render();
+if(state.goals.length)document.getElementById("onboard").classList.add("hidden");
 </script>
-
-<div class="site-footer">Discipline AI · Prototype website</div></body></html>
+</body>
+</html>
